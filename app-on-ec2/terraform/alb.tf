@@ -1,4 +1,4 @@
-resource "aws_security_group" "ingress" {
+resource "aws_security_group" "alb_sg" {
   name        = "allow_tls"
   description = "Allow TLS inbound traffic and all outbound traffic"
   vpc_id      = var.vpc_id
@@ -13,16 +13,16 @@ resource "aws_security_group_rule" "ingress_rule" {
   from_port         = 0
   to_port           = 65535
   protocol          = "tcp"
-  cidr_blocks       = ["10.0.0.0/8"]
-  security_group_id = aws_security_group.ingress.id
+  source_security_group_id        = [aws_security_group.ec2_sg.id]
+  security_group_id = aws_security_group.alb_sg.id
 }
 
 resource "aws_lb" "flask_alb" {
   name               = "flask-alb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.ingress.id]
-  subnets            = [var.public_subnet_id]
+  security_groups    = [aws_security_group.alb_sg.id]
+  subnets            = var.public_subnet_ids
 
   enable_deletion_protection = false
 }

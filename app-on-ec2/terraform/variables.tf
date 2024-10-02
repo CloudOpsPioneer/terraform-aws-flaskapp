@@ -15,9 +15,9 @@ variable "private_subnet_id" {
   default     = "subnet-03639446afdabc019"
 }
 
-variable "public_subnet_id" {
+variable "public_subnet_ids" {
   description = "public subnet id"
-  default     = "subnet-02983905d30bafdc4"
+  default     = ["subnet-02983905d30bafdc4", "subnet-0276f7262ebf25799"]
 }
 
 
