@@ -18,3 +18,12 @@ resource "aws_security_group" "ec2_sg" {
     Name = "flask-app-ec2-sg"
   }
 }
+
+resource "aws_security_group_rule" "ec2_ingress_rule_1" {
+  type                     = "ingress"
+  from_port                = 0
+  to_port                  = 65535
+  protocol                 = "tcp"
+  source_security_group_id = aws_security_group.alb_sg.id
+  security_group_id        = aws_security_group.ec2_sg.id
+}

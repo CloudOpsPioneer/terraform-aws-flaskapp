@@ -13,7 +13,7 @@ resource "aws_security_group_rule" "ingress_rule" {
   from_port                = 0
   to_port                  = 65535
   protocol                 = "tcp"
-  source_security_group_id = aws_security_group.ec2_sg.id
+  cidr_blocks       = ["0.0.0.0"]
   security_group_id        = aws_security_group.alb_sg.id
 }
 
