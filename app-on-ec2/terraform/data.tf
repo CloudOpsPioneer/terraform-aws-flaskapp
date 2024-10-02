@@ -7,3 +7,8 @@ data "aws_ami" "linux" {
   }
 
 }
+
+
+data "aws_iam_instance_profile" "ec2_ins_prof" {
+  name = "EC2-Role-admin"
+}
