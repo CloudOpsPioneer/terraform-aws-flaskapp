@@ -1,8 +1,8 @@
-resource "aws_instance" "flask_ec2_dkr" {
+resource "aws_instance" "flask_ec2" {
   ami                    = data.aws_ami.linux.id
   instance_type          = "t2.micro"
   subnet_id              = var.private_subnet_id
-  vpc_security_group_ids = [aws_security_group.ec2_dkr_sg.id]
+  vpc_security_group_ids = [aws_security_group.ec2_sg.id]
   iam_instance_profile   = "EC2-Role-admin"
 
 
@@ -24,7 +24,7 @@ resource "aws_instance" "flask_ec2_dkr" {
   EOF
 
   tags = {
-    Name = "flask-app-ec2-dkr"
+    Name = "flask-app-ec2"
   }
 }
 
