@@ -18,8 +18,8 @@ resource "aws_security_group" "ec2_sg" {
 
 resource "aws_security_group_rule" "ec2_ingress_rule_1" {
   type                     = "ingress"
-  from_port                = 8001
-  to_port                  = 8001
+  from_port                = 5000
+  to_port                  = 5000
   protocol                 = "tcp"
   source_security_group_id = aws_security_group.alb_sg.id
   security_group_id        = aws_security_group.ec2_sg.id
@@ -36,7 +36,7 @@ resource "aws_security_group" "alb_sg" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["168.x.x.x/32"]      # Update your ip
+    cidr_blocks = ["168.x.x.x/32"] # Update your ip
   }
 
   egress {

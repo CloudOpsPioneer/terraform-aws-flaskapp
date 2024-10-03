@@ -10,7 +10,7 @@ resource "aws_lb" "flask_alb" {
 
 resource "aws_lb_target_group" "flask_alb_tg" {
   name        = "flask-lb-tg"
-  port        = 8001
+  port        = 5000
   protocol    = "HTTP"
   target_type = "ip"
   vpc_id      = var.vpc_id
@@ -30,5 +30,5 @@ resource "aws_lb_listener" "flask_alb_listener" {
 resource "aws_lb_target_group_attachment" "flask_tg_attach" {
   target_group_arn = aws_lb_target_group.flask_alb_tg.arn
   target_id        = aws_instance.flask_ec2.private_ip
-  port             = 8001
+  port             = 5000
 }

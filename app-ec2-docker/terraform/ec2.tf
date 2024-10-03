@@ -12,15 +12,15 @@ resource "aws_instance" "flask_ec2" {
     # Installing Docker
     sudo yum update -y
     sudo yum install docker -y
-    sudo systemctl start docker     
- 
+    sudo systemctl start docker
+    sudo chmod 777 /var/run/docker.sock 
 
     # Downloading app files, building images and running as container
     mkdir ~/flask_app/
-    aws s3 cp s3://my-code-bucket-montreal/flask_app/ ~/flask_app/ --recursive
+    aws s3 cp s3://my-code-bucket/flask_app/ ~/flask_app/ --recursive            #Update your bucket
     docker build ~/flask_app/ -t webapp
-    docker run  -d -p 80:8001 --name=webapp webapp
-    curl http://localhost:80
+    docker run  -d -p 5000:8001 --name=webapp webapp            #App will be accessible  on port 5000 of the host
+    curl http://localhost:5000
   EOF
 
   tags = {
