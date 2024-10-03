@@ -4,10 +4,10 @@ resource "aws_security_group" "alb_sg" {
   vpc_id      = var.vpc_id
 
   ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["168.161.22.1/32"]
   }
 
   egress {
@@ -22,14 +22,6 @@ resource "aws_security_group" "alb_sg" {
   }
 }
 
-resource "aws_security_group_rule" "ingress_rule" {
-  type              = "ingress"
-  from_port         = 0
-  to_port           = 65535
-  protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
-  security_group_id = aws_security_group.alb_sg.id
-}
 
 resource "aws_lb" "flask_alb" {
   name               = "flask-alb"
