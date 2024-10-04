@@ -1,6 +1,6 @@
 #-------------------------EC2 Security Group-------------------------#
 resource "aws_security_group" "ec2_sg" {
-  name        = "flask-ec2docker-alb-sg"
+  name        = "flask-ec2docker-ec2-sg"
   description = "Allow TLS inbound traffic and all outbound traffic"
   vpc_id      = var.vpc_id
 
@@ -12,7 +12,7 @@ resource "aws_security_group" "ec2_sg" {
   }
 
   tags = {
-    Name = "flask-ec2docker-alb-sg"
+    Name = "flask-ec2docker-ec2-sg"
   }
 }
 
