@@ -11,7 +11,7 @@ resource "aws_lb" "flask_ecs_alb" {
 
 #-----------------------------------------------<TARGET GROUP>-----------------------------------------------
 resource "aws_lb_target_group" "flask_alb_tg" {
-  name        = "flask-alb-tg"
+  name        = "flask-ecs-alb-tg"
   port        = 8001
   protocol    = "HTTP"
   target_type = "ip"
