@@ -1,3 +1,5 @@
+# This data block will generate a new hash id if atleast one change done on the mentioned path.
+# This will help us to decide if docker build is required or not using null resource below
 data "external" "folder_hash" {
   program = ["bash", "-c", "find ${path.module}/../app/ -type f -exec sha256sum {} + | sha256sum | cut -d' ' -f1 | jq -R '{hash: .}'"]
 }
