@@ -1,3 +1,4 @@
+#-------------------------------------------------<EC2>--------------------------------------------------
 resource "aws_instance" "flask_ec2" {
   ami                    = data.aws_ami.linux.id
   instance_type          = "t2.micro"

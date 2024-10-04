@@ -4,6 +4,7 @@ data "external" "folder_hash" {
   program = ["bash", "-c", "find ${path.module}/../app/ -type f -exec sha256sum {} + | sha256sum | cut -d' ' -f1 | jq -R '{hash: .}'"]
 }
 
+#-------------------------------------------------<DOCKER BUILD>--------------------------------------------------
 resource "docker_image" "image" {
   name = "${awscc_ecr_repository.flask_ecr.repository_uri}:latest"
   build {
@@ -13,6 +14,7 @@ resource "docker_image" "image" {
   triggers = { "hash" = data.external.folder_hash.result.hash }
 }
 
+#-------------------------------------------------<DOCKER PUSH>--------------------------------------------------
 resource "null_resource" "folder_change_trigger" {
   triggers = {
     folder_hash_sha = data.external.folder_hash.result.hash

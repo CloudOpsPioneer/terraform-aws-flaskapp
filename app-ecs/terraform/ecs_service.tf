@@ -1,3 +1,4 @@
+#-------------------------------------------------<ECS SERVICE>--------------------------------------------------
 resource "aws_ecs_service" "flask_app" {
   name            = "flask-svc"
   launch_type     = "FARGATE"

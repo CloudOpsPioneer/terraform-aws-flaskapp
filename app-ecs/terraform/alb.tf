@@ -1,3 +1,4 @@
+#-------------------------------------------------<ALB>-------------------------------------------------
 resource "aws_lb" "flask_ecs_alb" {
   name               = "flask-ecs-alb"
   internal           = false
@@ -8,6 +9,7 @@ resource "aws_lb" "flask_ecs_alb" {
   enable_deletion_protection = false
 }
 
+#-----------------------------------------------<TARGET GROUP>-----------------------------------------------
 resource "aws_lb_target_group" "flask_alb_tg" {
   name        = "flask-alb-tg"
   port        = 8001
@@ -16,6 +18,7 @@ resource "aws_lb_target_group" "flask_alb_tg" {
   vpc_id      = var.vpc_id
 }
 
+#-------------------------------------------------<LISTENER>--------------------------------------------------
 resource "aws_lb_listener" "flask_alb_listener" {
   load_balancer_arn = aws_lb.flask_ecs_alb.arn
   port              = "80"
@@ -26,4 +29,3 @@ resource "aws_lb_listener" "flask_alb_listener" {
     target_group_arn = aws_lb_target_group.flask_alb_tg.arn
   }
 }
-

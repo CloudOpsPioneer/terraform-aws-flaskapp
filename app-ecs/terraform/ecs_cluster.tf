@@ -1,3 +1,4 @@
+#-------------------------------------------------<ECS CLUSTER>--------------------------------------------------
 resource "aws_ecs_cluster" "webapp" {
   name = "webapp-ecs-cluster"
 

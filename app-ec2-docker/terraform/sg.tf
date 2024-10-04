@@ -1,4 +1,4 @@
-#-------------------------EC2 Security Group-------------------------#
+#-------------------------------------------------<EC2 Security Group>--------------------------------------------------
 resource "aws_security_group" "ec2_sg" {
   name        = "flask-ec2docker-ec2-sg"
   description = "Allow TLS inbound traffic and all outbound traffic"
@@ -25,8 +25,7 @@ resource "aws_security_group_rule" "ec2_ingress_rule_1" {
   security_group_id        = aws_security_group.ec2_sg.id
 }
 
-
-#-------------------------ALB Security Group-------------------------#
+#-------------------------------------------------<ALB Security Group>--------------------------------------------------
 resource "aws_security_group" "alb_sg" {
   name        = "flask-ec2docker-alb-sg"
   description = "Allow TLS inbound traffic and all outbound traffic"

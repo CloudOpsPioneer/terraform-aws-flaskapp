@@ -9,7 +9,6 @@ data "aws_iam_policy_document" "ecs_assume_role_policy" {
   }
 }
 
-
 #------------------------------------------------<EXECUTION IAM ROLE>------------------------------------------------#
 
 data "aws_iam_policy_document" "task_exec_policy" {
