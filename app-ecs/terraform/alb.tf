@@ -1,5 +1,5 @@
 resource "aws_lb" "flask_ecs_alb" {
-  name               = "flask-alb"
+  name               = "flask-ecs-alb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.alb_sg.id]
