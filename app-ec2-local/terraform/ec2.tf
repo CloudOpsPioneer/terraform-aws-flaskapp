@@ -16,7 +16,7 @@ resource "aws_instance" "flask_ec2" {
   EOF
 
   tags = {
-    Name = "flask-ec2-local"
+    Name = "flask-ec2local"
   }
 }
 

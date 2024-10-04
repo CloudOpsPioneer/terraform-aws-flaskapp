@@ -1,5 +1,5 @@
 resource "aws_lb" "flask_alb" {
-  name               = "flask-ec2-local-alb"
+  name               = "flask-ec2local-alb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.alb_sg.id]
@@ -9,7 +9,7 @@ resource "aws_lb" "flask_alb" {
 }
 
 resource "aws_lb_target_group" "flask_alb_tg" {
-  name        = "flask-ec2-local-alb-tg"
+  name        = "flask-ec2local-alb-tg"
   port        = 8001
   protocol    = "HTTP"
   target_type = "ip"
