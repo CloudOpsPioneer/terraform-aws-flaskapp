@@ -1,6 +1,6 @@
 #-------------------------EC2 Security Group-------------------------#
 resource "aws_security_group" "ec2_sg" {
-  name        = "flask-app-ec2-sg"
+  name        = "flask-local-ec2-sg"
   description = "Allow TLS inbound traffic and all outbound traffic"
   vpc_id      = var.vpc_id
 
@@ -12,7 +12,7 @@ resource "aws_security_group" "ec2_sg" {
   }
 
   tags = {
-    Name = "flask-app-ec2-sg"
+    Name = "flask-local-ec2-sg"
   }
 }
 
@@ -28,7 +28,7 @@ resource "aws_security_group_rule" "ec2_ingress_rule_1" {
 
 #-------------------------ALB Security Group-------------------------#
 resource "aws_security_group" "alb_sg" {
-  name        = "flask-app-alb-sg"
+  name        = "flask-local-alb-sg"
   description = "Allow TLS inbound traffic and all outbound traffic"
   vpc_id      = var.vpc_id
 
@@ -47,6 +47,6 @@ resource "aws_security_group" "alb_sg" {
   }
 
   tags = {
-    Name = "flask-alb-sg"
+    Name = "flask-local-alb-sg"
   }
 }
