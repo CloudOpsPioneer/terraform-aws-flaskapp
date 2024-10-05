@@ -27,7 +27,7 @@ resource "aws_ecs_service" "flask_app" {
     container_name   = "flask-ui"
     container_port   = 8001
   }
-  
-  depends_on = [ aws_lb_listener.flask_alb_listener ]
+
+  depends_on = [aws_lb_listener.flask_alb_listener]
 
 }
