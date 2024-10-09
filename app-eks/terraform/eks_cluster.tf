@@ -7,7 +7,7 @@ resource "aws_eks_cluster" "webapp_eks_cluster" {
     subnet_ids              = var.private_subnet_ids
     endpoint_private_access = true
     endpoint_public_access  = true
-    public_access_cidrs     = ["168.x.x.x/32"] # public ips from where you will run kubectl commands
+    public_access_cidrs     = [var.my_public_ip] # public ips from where you will run kubectl commands
     security_group_ids      = [aws_security_group.eks_sg.id]
   }
 

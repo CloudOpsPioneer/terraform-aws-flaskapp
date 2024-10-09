@@ -24,10 +24,10 @@ data "aws_eks_cluster_auth" "webapp_eks_cluster" {
 }
 
 provider "kubernetes" {
-  config_path = "~/.kube/config"
-  #host                   = aws_eks_cluster.webapp_eks_cluster.endpoint
-  #cluster_ca_certificate = base64decode(aws_eks_cluster.webapp_eks_cluster.certificate_authority.0.data)
-  #token                  = data.aws_eks_cluster_auth.webapp_eks_cluster.token
+  #config_path = "~/.kube/config"
+  host                   = aws_eks_cluster.webapp_eks_cluster.endpoint
+  cluster_ca_certificate = base64decode(aws_eks_cluster.webapp_eks_cluster.certificate_authority.0.data)
+  token                  = data.aws_eks_cluster_auth.webapp_eks_cluster.token
 }
 
 provider "helm" {

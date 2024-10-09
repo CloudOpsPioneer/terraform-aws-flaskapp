@@ -8,7 +8,7 @@ resource "aws_security_group" "eks_sg" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["172.x.x.x/32"]
+    cidr_blocks = [var.my_private_ip]
     description = "private ip of my ec2 instance hosted on same vpc as eks. I am running TF and kubectl commands from here"
   }
 
@@ -34,7 +34,7 @@ resource "aws_security_group" "eks_flask_alb_sg" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["168.x.x.x/32"]
+    cidr_blocks = [var.my_public_ip]
     description = "my public ip to access the ALB DNS from browser"
   }
 
