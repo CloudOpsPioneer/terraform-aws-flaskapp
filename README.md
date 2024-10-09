@@ -6,4 +6,4 @@ They are -
 - [Running an app locally on ec2 instance](https://github.com/karthikrajkkr/flaskapp-on-aws/tree/main/app-ec2-local)
 - [Running an app by running docker container locally on ec2 instance](https://github.com/karthikrajkkr/flaskapp-on-aws/tree/main/app-ec2-docker)
 - [Running on ECS container](https://github.com/karthikrajkkr/flaskapp-on-aws/tree/main/app-ecs)
-- Running on EKS --> coming soon
+- [Running on EKS](https://github.com/karthikrajkkr/flaskapp-on-aws/tree/main/app-eks)
