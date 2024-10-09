@@ -8,8 +8,8 @@ resource "aws_security_group" "eks_sg" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["10.74.51.109/32"]
-    description = "private ip of my ec2 instance hosted on same vpc as eks. I am running TF from here"
+    cidr_blocks = ["172.31.24.245/32"]
+    description = "private ip of my ec2 instance hosted on same vpc as eks. I am running TF and kubectl commands from here"
   }
 
   egress {

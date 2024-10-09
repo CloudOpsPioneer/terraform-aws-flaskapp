@@ -1,7 +1,7 @@
 #-------------------------------------------------<rbac for IAM roles to access kube api>--------------------------------------------------
-resource "kubernetes_cluster_role_v1" "poc_np_admin" {
+resource "kubernetes_cluster_role_v1" "aws_root_admin" {
   metadata {
-    name = "aws-msc-poc-nonprod-admin-clusterrole"
+    name = "aws-root-clusterrole"
   }
 
   rule {
@@ -18,14 +18,14 @@ resource "kubernetes_cluster_role_v1" "poc_np_admin" {
 }
 
 
-resource "kubernetes_cluster_role_binding_v1" "poc_np_admin" {
+resource "kubernetes_cluster_role_binding_v1" "aws_root_admin" {
   metadata {
-    name = "aws-msc-poc-nonprod-admin-crb"
+    name = "aws-root-crb"
   }
   role_ref {
     api_group = "rbac.authorization.k8s.io"
     kind      = "ClusterRole"
-    name      = kubernetes_cluster_role_v1.poc_np_admin.metadata[0].name
+    name      = kubernetes_cluster_role_v1.aws_root_admin.metadata[0].name
   }
   subject {
     kind      = "Group"

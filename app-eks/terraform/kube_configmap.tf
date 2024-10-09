@@ -1,19 +1,14 @@
 locals {
   aws_auth_roles = [
     {
-      rolearn  = "arn:aws:iam::530694037299:role/webapp-eks-node-group-iam-role"
+      rolearn  = aws_iam_role.eks_node_group_iam_role.arn
       username = "system:node:{{EC2PrivateDNSName}}"
       groups   = ["system:nodes", "system:bootstrappers"]
     },
     {
-      rolearn  = "arn:aws:iam::530694037299:role/aws-msc-poc-nonprod-admin"
-      username = "aws-msc-poc-nonprod-admin"
+      rolearn  = "arn:aws:iam::730335614762:root"
+      username = "my-aws-account-root"
       groups   = ["developer"]
-    },
-    {
-      rolearn  = "arn:aws:iam::530694037299:role/EC2Admin"
-      username = "ec2-admin"
-      groups   = ["system:masters"]
     },
   ]
 }
