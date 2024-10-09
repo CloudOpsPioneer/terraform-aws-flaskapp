@@ -1,3 +1,4 @@
+#------------------------------------------------<KUBE INGRESS>------------------------------------------------#
 resource "kubernetes_ingress_v1" "flask_ingress" {
   metadata {
     name = "flask-ingress"

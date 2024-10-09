@@ -9,3 +9,13 @@ sudo yum install docker -y
 sudo chmod 777 /var/run/docker.sock
 sudo systemctl restart docker
 ```
+
+
+
+To list the available charts of ALB controller in helm
+```
+helm repo add eks-charts https://aws.github.io/eks-charts
+helm repo list
+helm search  repo eks-charts/aws-load-balancer-controller
+helm search  repo eks-charts/aws-load-balancer-controller  --versions
+```

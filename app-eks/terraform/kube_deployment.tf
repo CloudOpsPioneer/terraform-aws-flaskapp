@@ -1,3 +1,4 @@
+#------------------------------------------------<KUBE DEPLOYMENT>------------------------------------------------#
 resource "kubernetes_deployment_v1" "flask_deployment" {
   metadata {
     name = "flask-deployment"

@@ -1,10 +1,13 @@
+#-------------------------------------------------<HELM CHARTS>--------------------------------------------------
+
+#-------------------------------------------------<EKS ALB CONTROLLER>--------------------------------------------------
 # https://docs.aws.amazon.com/eks/latest/userguide/lbc-helm.html#lbc-helm-install
 resource "helm_release" "aws-load-balancer-controller" {
   name             = "aws-load-balancer-controller"
   repository       = "https://aws.github.io/eks-charts"
   chart            = "aws-load-balancer-controller"
   namespace        = "kube-system"
-  version          = "1.9.0"
+  version          = "1.9.0"         # refer the README.md file to check available versions
   wait             = false
   create_namespace = false
   set {

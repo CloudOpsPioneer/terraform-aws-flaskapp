@@ -1,3 +1,4 @@
+#------------------------------------------------<KUBE SERVICE>------------------------------------------------#
 resource "kubernetes_service_v1" "flask_svc" {
   metadata {
     name = "flask-svc"

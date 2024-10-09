@@ -1,3 +1,6 @@
+#------------------------------------------------<KUBE CM AWS-AUTH>------------------------------------------------#
+
+# Controlling permissions of kube api by adding/removing roles in aws-auth
 locals {
   aws_auth_roles = [
     {

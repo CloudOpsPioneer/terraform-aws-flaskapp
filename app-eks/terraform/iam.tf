@@ -115,7 +115,6 @@ data "aws_iam_policy_document" "eks_alb_controller_assume" {
   }
 }
 
-
 resource "aws_iam_role" "eks_lb_iam_role" {
   name                = "webapp-eks-load-balancer-iam-role"
   assume_role_policy  = data.aws_iam_policy_document.eks_alb_controller_assume.json
