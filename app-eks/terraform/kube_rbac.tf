@@ -36,3 +36,35 @@ resource "kubernetes_cluster_role_binding_v1" "aws_root_admin" {
 }
 
 
+/*
+#YAML format of ClusterRole for better understanding
+#---------------------------------------------------
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: aws-root-clusterrole
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "pods/log"]
+    verbs: ["get", "list", "create", "delete", "watch"]
+  - apiGroups: [""]
+    resources: ["nodes"]
+    verbs: ["get", "list", "watch"]
+
+
+#YAML format of ClusterRoleBinding for better understanding
+#----------------------------------------------------------
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: aws-root-crb
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: aws-root-clusterrole
+subjects:
+- kind: Group
+  name: developer
+  apiGroup: rbac.authorization.k8s.io
+
+*/
