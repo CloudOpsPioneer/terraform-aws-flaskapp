@@ -60,7 +60,8 @@ resource "kubernetes_deployment_v1" "flask_deployment" {
 
 
 /*
-# YAML format of Deployment for better understanding
+#YAML format of Deployment for better understanding
+#---------------------------------------------------
 apiVersion: apps/v1
 kind: Deployment
 metadata:
