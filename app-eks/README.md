@@ -20,7 +20,8 @@ helm search  repo eks-charts/aws-load-balancer-controller
 helm search  repo eks-charts/aws-load-balancer-controller  --versions
 ```
 
-## To check connectivity of any app running on pod_ip
+## Troubleshooting 
+To check connectivity of any app running on pod.
 
 ### ClusterIP
 Run either one of the commands to test.
