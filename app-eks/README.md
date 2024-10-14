@@ -23,7 +23,7 @@ helm search  repo eks-charts/aws-load-balancer-controller  --versions
 ## Troubleshooting 
 To check connectivity of any app running on pod.
 
-### ClusterIP
+#### ClusterIP
 Run either one of the commands to test.
 ```sh
 kubectl run busybox --image=busybox -- sleep 4800
