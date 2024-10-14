@@ -19,3 +19,13 @@ helm repo list
 helm search  repo eks-charts/aws-load-balancer-controller
 helm search  repo eks-charts/aws-load-balancer-controller  --versions
 ```
+
+## To check connectivity of any app running on pod_ip
+
+### ClusterIP
+Run either one of the commands to test.
+```
+kubectl run busybox --image=busybox -- sleep 4800
+kubectl exec -it busybox -- telnet <pod_ip>:<default port of container>  [ Ex: kubectl exec -it bus -- telnet 10.74.51.19:80 ]
+kubectl exec -it busybox -- telnet <svc ip>:<target port in service> [ Ex: kubectl exec -it bus -- telnet 10.74.51.216 8080 ]
+```
