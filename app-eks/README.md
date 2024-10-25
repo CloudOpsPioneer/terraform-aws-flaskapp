@@ -12,7 +12,7 @@ sudo chmod 777 /var/run/docker.sock
 sudo systemctl restart docker
 ```
 
-To list the available charts of ALB controller in helm
+To list the available charts of ALB controller in helm. You can install helm by following the documentation [helm-install](https://helm.sh/docs/intro/install/)
 ```sh
 helm repo add eks-charts https://aws.github.io/eks-charts
 helm repo list
